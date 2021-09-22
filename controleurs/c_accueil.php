@@ -13,9 +13,13 @@
  * @version   GIT: <0>
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
  */
-
+//$estConnecte viens d'Index.php de la fonction estConnecte()
 if ($estConnecte) {
     include 'vues/v_accueil.php';
-} else {
+} 
+elseif($estConnecte){
+    include 'vues/v_accueil-comptable';
+}
+else {
     include 'vues/v_connexion.php';
 }
