@@ -90,16 +90,31 @@ class PdoGsb
      *
      * @return l'id, le nom et le prénom sous la forme d'un tableau associatif
      */
-    public function getInfosVisiteur($login, $mdp)
+    
+       
+        
+    public function getMdpvisiteur($login){
+        $requetePrepare= PdoGsb::$monPdo->prepare(
+                'SELECT mdp'
+                .'FROM visiteur'
+                .'WHERE visiteur.login =:login'
+        );
+        $requetePrepare ->bindParam(':unLogin',$login,PDO::PARAM_STR);
+        $requetePrepare->execute();
+        return $requetePrepare->fetch()['mdp'];
+    }
+    
+    public function getInfosVisiteur($login)
     {
+       
         $requetePrepare = PdoGsb::$monPdo->prepare(
             'SELECT visiteur.id AS id, visiteur.nom AS nom, '
             . 'visiteur.prenom AS prenom '
             . 'FROM visiteur '
             . 'WHERE visiteur.login = :unLogin AND visiteur.mdp = :unMdp'
         );
+        
         $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
-        $requetePrepare->bindParam(':unMdp', MD5($mdp), PDO::PARAM_STR);
         $requetePrepare->execute();
         return $requetePrepare->fetch();
     }
@@ -111,6 +126,8 @@ $requetePrepare = PdoGsb::$monPdo->prepare(
         .'FROM comptable '
         .'WHERE comptable.login = :unLogin AND comptable.mdp = :unMdp'    
 );
+
+
 $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
 $requetePrepare->bindParam(':unMdp', $mdp, PDO::PARAM_STR);
 $requetePrepare->execute();
@@ -128,6 +145,7 @@ return $requetePrepare->fetch();
      * @return tous les champs des lignes de frais hors forfait sous la forme
      * d'un tableau associatif
      */
+    
     public function getLesFraisHorsForfait($idVisiteur, $mois)
     {
         $requetePrepare = PdoGsb::$monPdo->prepare(
@@ -145,7 +163,7 @@ return $requetePrepare->fetch();
         }
         return $lesLignes;
     }
-
+    
     /**
      * Retourne le nombre de justificatif d'un visiteur pour un mois donné
      *
