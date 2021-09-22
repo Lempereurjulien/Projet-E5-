@@ -23,7 +23,7 @@
             <div class="panel-body">
                 <form role="form" method="post" 
                       action="index.php?uc=connexion&action=valideConnexion">
-                    <fieldset>
+                    <fieldset>  
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon">
