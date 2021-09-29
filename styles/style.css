@@ -1,3 +1,14 @@
 .header {
     margin-top: 10px;
 }
+.btn btn-primary btn-lg{
+    background-color: #f5932e;
+}
+
+.btn-success{
+        color: #f5932e;
+
+}
+/*.container{
+    padding-right: 150px !important;
+}*/

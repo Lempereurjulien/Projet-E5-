@@ -22,6 +22,7 @@
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
  */
 ?>
+<link href="../styles/style.css" rel="stylesheet" type="text/css"/>
 <div id="accueil-comptable">
     <h2>
         Gestion des frais<small> - Comptable : 
@@ -40,7 +41,7 @@
                 </h3>
             </div>
             <div class="panel-body">
-                <div class="row">
+                <!--<div class="row">-->
                     <div class="col-xs-12 col-md-12">
                         <a href="index.php?uc=gererFrais&action=saisirFrais"
                            class="btn btn-success btn-lg" role="button">
