@@ -95,9 +95,9 @@ class PdoGsb
         
     public function getMdpvisiteur($login){
         $requetePrepare= PdoGsb::$monPdo->prepare(
-                'SELECT mdp'
-                .'FROM visiteur'
-                .'WHERE visiteur.login =:login'
+                'SELECT mdp '
+                .'FROM visiteur '
+                .'WHERE visiteur.login = :unLogin'
         );
         $requetePrepare ->bindParam(':unLogin',$login,PDO::PARAM_STR);
         $requetePrepare->execute();
@@ -111,25 +111,32 @@ class PdoGsb
             'SELECT visiteur.id AS id, visiteur.nom AS nom, '
             . 'visiteur.prenom AS prenom '
             . 'FROM visiteur '
-            . 'WHERE visiteur.login = :unLogin AND visiteur.mdp = :unMdp'
+            . 'WHERE visiteur.login = :unLogin'
         );
         
         $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
         $requetePrepare->execute();
         return $requetePrepare->fetch();
     }
+    public function getMdpComptable($login) {
+        $requetePrepare=PdoGsb::$monPdo->prepare(
+                'SELECT mdp '
+                .'FROM comptable '
+                .'WHERE comptable.login = :unLogin'
+        );
+        $requetePrepare->execute();
+        return $requetePrepare->fetch()['mdp'];
+    }
     
-    public function getInfosComptable($login,$mdp){
+    public function getInfosComptable($login){
 $requetePrepare = PdoGsb::$monPdo->prepare(
   'SELECT comptable.id AS id, comptable.nom as nom, '.
         'comptable.prenom As prenom '
         .'FROM comptable '
-        .'WHERE comptable.login = :unLogin AND comptable.mdp = :unMdp'    
+        .'WHERE comptable.login = :unLogin'     
 );
 
-
 $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
-$requetePrepare->bindParam(':unMdp', $mdp, PDO::PARAM_STR);
 $requetePrepare->execute();
 return $requetePrepare->fetch();
     }
