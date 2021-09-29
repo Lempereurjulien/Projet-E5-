@@ -21,12 +21,15 @@
  */
 function estConnecte()
 {
-    return isset($_SESSION['idVisiteur']);
+    if($_SESSION['idVisiteur']==false){
+        return isset ($_SESSION['idComptable']);
+    }
+    else{
+        return isset($_SESSION['idVisiteur']);
+    }
+    
 }
-function estConnecterComptable()
-{
-    return isset ($_SESSION['idComptable']);
-}
+
 
 /**
  * Enregistre dans une variable session les infos d'un visiteur
