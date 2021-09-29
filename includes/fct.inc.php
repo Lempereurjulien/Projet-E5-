@@ -20,15 +20,17 @@
  * @return vrai ou faux
  */
 function estConnecte()
+{     
+        return isset ($_SESSION['idVisiteur']);
+}
+    
+function estConnecteComptable()
 {
-    if($_SESSION['idVisiteur']==false){
-        return isset ($_SESSION['idComptable']);
-    }
-    else{
-        return isset($_SESSION['idVisiteur']);
+
+        return isset($_SESSION['idComptable']);
     }
     
-}
+
 
 
 /**
