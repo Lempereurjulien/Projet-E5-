@@ -14,6 +14,6 @@ class Test{
         
     $requetePrepare = PdoGsbTest::$monPdo->prepare(
             
-    )
+    );
 }
 }
