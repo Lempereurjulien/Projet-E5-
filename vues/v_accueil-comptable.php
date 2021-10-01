@@ -33,8 +33,8 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+        <div class="panel panel-primary" style="border-color:#fb8500">
+            <div class="panel-heading" style="background-color:#fb8500; border-color:#fb8500";>
                 <h3 class="panel-title">
                     <span class="glyphicon glyphicon-bookmark"></span>
                     Navigation
@@ -44,7 +44,10 @@
                 <!--<div class="row">-->
                     <div class="col-xs-12 col-md-12">
                         <a href="index.php?uc=gererFrais&action=saisirFrais"
-                           class="btn btn-success btn-lg" role="button">
+                           class="btn btn-success btn-lg" role="button" style="background-color:#fb8500">
+                        
+                       <!-- <a href="v_validerFichefrais.php"
+                           class="btn btn-success btn-lg" role="button" style="background-color:#fb8500">-->
                             <span class="glyphicon glyphicon-pencil"></span>
                             <br>Valider fiche de frais</a>
                         <a href="index.php?uc=etatFrais&action=selectionnerMois"
