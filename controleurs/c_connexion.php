@@ -30,7 +30,7 @@ switch ($action) {
         $comptable = $pdo->getInfosComptable($login);
 
         if (!password_verify($mdp, $pdo->getMdpVisiteur($login))){
-            if(!is_array($comptable)){
+            if(!password_verify($mdp,$pdo->getMdpComptable($login))){
               ajouterErreur('Login ou mot de passe incorrect');
               include 'vues/v_erreurs.php';
               include 'vues/v_connexion.php';  

@@ -26,9 +26,9 @@
 <div id="accueil-comptable">
     <h2>
         Gestion des frais<small> - Comptable : 
-<!--            <?php 
+            <?php 
             echo $_SESSION['prenom'] . ' ' . $_SESSION['nom']
-            ?></small>-->
+            ?></small>
     </h2>   
 </div>
 <div class="row">
