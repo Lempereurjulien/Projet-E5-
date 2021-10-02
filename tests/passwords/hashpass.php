@@ -22,3 +22,17 @@ foreach ($visiteurs as $visiteur ){
 $req = "UPDATE visiteur SET mdp='" . $hashMdp . "' WHERE id ='" . $visiteur['id'] . "';";
 $pdo->exec($req);
 }
+
+function getLesComptables($pdo)
+{
+    $req = 'select * from comptable';
+    $res = $pdo->query($req);
+    $lesLignes = $res->fetchAll();
+    return $lesLignes;
+}
+$comptables = getLesComptables($pdo);
+foreach ($comptables as $comptable ){
+    $hashMdp = password_hash($comptable['mdp'],PASSWORD_DEFAULT);
+$req = "UPDATE comptable SET mdp='" . $hashMdp . "' WHERE id ='" . $comptable['id'] . "';";
+$pdo->exec($req);
+}

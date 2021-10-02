@@ -124,6 +124,7 @@ class PdoGsb
                 .'FROM comptable '
                 .'WHERE comptable.login = :unLogin'
         );
+        $requetePrepare ->bindParam(':unLogin',$login,PDO::PARAM_STR);
         $requetePrepare->execute();
         return $requetePrepare->fetch()['mdp'];
     }
