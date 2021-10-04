@@ -46,8 +46,8 @@
                         <a href="index.php?uc=gererFrais&action=saisirFrais"
                            class="btn btn-success btn-lg" role="button" style="background-color:#fb8500">
                         
-                       <!-- <a href="v_validerFichefrais.php"
-                           class="btn btn-success btn-lg" role="button" style="background-color:#fb8500">-->
+                       <a href="v_validerFichefrais.php"
+                           class="btn btn-success btn-lg" role="button" style="background-color:#fb8500">
                             <span class="glyphicon glyphicon-pencil"></span>
                             <br>Valider fiche de frais</a>
                         <a href="index.php?uc=etatFrais&action=selectionnerMois"
