@@ -93,7 +93,7 @@ class PdoGsb
     
        
         
-    public function getMdpvisiteur($login){
+    public function getMdpVisiteur($login){
         $requetePrepare= PdoGsb::$monPdo->prepare(
                 'SELECT mdp '
                 .'FROM visiteur '
