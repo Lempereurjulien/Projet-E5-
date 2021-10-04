@@ -29,8 +29,9 @@ switch ($action) {
         $visiteur = $pdo->getInfosVisiteur($login);
         $comptable = $pdo->getInfosComptable($login);
         $mdpVisiteur= $pdo->getMdpVisiteur($login);
-
-        if (!password_verify($mdp,$pdo->getMdpVisiteur($login))){
+        
+        if(password_verify($mdp, $pdo->getMdpVisiteur($login)))
+        {
             if(!password_verify($mdp,$pdo->getMdpComptable($login))){
               ajouterErreur('Login ou mot de passe incorrect');
               include 'vues/v_erreurs.php';
