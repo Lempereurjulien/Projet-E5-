@@ -31,7 +31,7 @@
                     Navigation
                 </h3>
             </div>
-            <div class="panel-body">
+            <div class="panel-body">        
                 <div class="row">
                     <div class="col-xs-12 col-md-12">
                         <a href="index.php?uc=gererFrais&action=saisirFrais"
