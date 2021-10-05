@@ -43,6 +43,7 @@ switch ($action) {
                 $prenom = $comptable['prenom'];
                 connecter_comptable($id, $nom, $prenom);
                 header('Location: index.php');
+                
                 }
         }
         else{
@@ -51,6 +52,7 @@ switch ($action) {
             $prenom = $visiteur['prenom'];
             connecter($id, $nom, $prenom);
             header('Location: index.php');
+            mail("julien@gmail.com","connexion","Votre compte " + $nom + " à été connecté");
         }        
         
             
