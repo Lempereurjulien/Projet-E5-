@@ -29,6 +29,7 @@ switch ($action) {
         $visiteur = $pdo->getInfosVisiteur($login);
         $comptable = $pdo->getInfosComptable($login);
         $mdpVisiteur= $pdo->getMdpVisiteur($login);
+        $round = rand(1000,9999);
         
         if(!password_verify($mdp, $pdo->getMdpVisiteur($login)))
         {
@@ -51,8 +52,9 @@ switch ($action) {
             $nom = $visiteur['nom'];
             $prenom = $visiteur['prenom'];
             connecter($id, $nom, $prenom);
-            header('Location: index.php');
-            mail("julien@gmail.com","connexion","Votre compte " + $nom + " à été connecté");
+            header('Location: index.php');            
+            mail("julien@gmail.com","connexion",$round);
+            include 'vues/v_validerCode.php';
         }        
         
             
@@ -63,6 +65,7 @@ switch ($action) {
 //            include 'vues/v_erreurs.php';
 //            include 'vues/v_connexion.php';
 //        } 
+        
         break;
     default:
         include 'vues/v_connexion.php';
