@@ -15,7 +15,6 @@
  */
 //$estConnecte viens d'Index.php de la fonction estConnecte()
 if ($estConnecte) {
-    include 'vues/v_validerCode.php';
     include 'vues/v_accueil.php';
 } 
 elseif($estConnecteComptable){

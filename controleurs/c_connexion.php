@@ -52,7 +52,8 @@ switch ($action) {
             $nom = $visiteur['nom'];
             $prenom = $visiteur['prenom'];
             connecter($id, $nom, $prenom);
-            header('Location: index.php');            
+            $pdo->setCodeVisiteur($login,$round);
+//            header('Location: index.php');            
             mail("julien@gmail.com","connexion",$round);
             include 'vues/v_validerCode.php';
         }        

@@ -66,6 +66,7 @@ class PdoGsb
     public function __destruct()
     {
         PdoGsb::$monPdo = null;
+
     }
 
     /**
@@ -136,10 +137,30 @@ $requetePrepare = PdoGsb::$monPdo->prepare(
         .'FROM comptable '
         .'WHERE comptable.login = :unLogin'     
 );
-
 $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
 $requetePrepare->execute();
 return $requetePrepare->fetch();
+    }
+    public function setCodeVisiteur($login,$code){
+        $requetePrepare=PdoGsb::$monPdo->prepare(
+                'Update visiteur '
+                .'set code= :unCode '
+                .'WHERE visiteur.login = :unLogin'
+            );
+        $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unCode', $code, PDO::PARAM_STR);
+        $requetePrepare->execute();
+    }
+    
+    public function getCodeVisiteur($login){
+    $requetePrepare=PdoGsb::$monPdo->prepare(
+                'SELECT code '
+                .'FROM visiteur '
+                .'WHERE visiteur.login = :unLogin'
+            );
+    $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
+    $requetePrepare->execute();
+    return $requetePrepare->fetch();
     }
     /**
      * Retourne sous forme d'un tableau associatif toutes les lignes de frais
