@@ -7,7 +7,7 @@
  */
 $code = $pdo->getCodeVisiteur($_SESSION["idVisiteur"]);
 //$code = $pdo->getCodeVisiteur($login);
-if($code == $round){
+if($code == $_SESSION["code"]){
     header('Location: index.php');
     include 'vues/v_accueil';
 }

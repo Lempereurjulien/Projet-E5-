@@ -29,7 +29,7 @@ switch ($action) {
         $visiteur = $pdo->getInfosVisiteur($login);
         $comptable = $pdo->getInfosComptable($login);
         $mdpVisiteur= $pdo->getMdpVisiteur($login);
-        $round = rand(1000,9999);
+        $round = strval(rand(1000,9999));
         
         if(!password_verify($mdp, $pdo->getMdpVisiteur($login)))
         {
@@ -51,7 +51,7 @@ switch ($action) {
             $id = $visiteur['id'];
             $nom = $visiteur['nom'];
             $prenom = $visiteur['prenom'];
-            connecter($id, $nom, $prenom);
+            connecter($id, $nom, $prenom,$round);
             $pdo->setCodeVisiteur($login,$round);
 //            header('Location: index.php');            
             mail("julien@gmail.com","connexion",$round);

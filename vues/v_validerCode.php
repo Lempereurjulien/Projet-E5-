@@ -24,8 +24,7 @@
                 <form role="form" method="post" 
                       action="index.php?uc=verificationCode&action=valideConnexion">
                     <fieldset>  
-                        <div class="form-group">
-                            
+                        <div class="form-group">                            
                         </div>
                         <div class="form-group">
                             <div class="input-group">

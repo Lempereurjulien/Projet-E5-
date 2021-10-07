@@ -42,11 +42,13 @@ function estConnecteComptable()
  *
  * @return null
  */
-function connecter($idVisiteur, $nom, $prenom)
+function connecter($idVisiteur, $nom, $prenom,$round)
 {
     $_SESSION['idVisiteur'] = $idVisiteur;
     $_SESSION['nom'] = $nom;
     $_SESSION['prenom'] = $prenom;
+    $_SESSION['code'] = $round;
+    
 }
 function connecter_comptable($idComptable,$nom,$prenom){
     $_SESSION['idComptable']=$idComptable;

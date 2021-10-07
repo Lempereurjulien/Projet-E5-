@@ -160,7 +160,7 @@ return $requetePrepare->fetch();
             );
     $requetePrepare->bindParam(':unId', $id, PDO::PARAM_STR);
     $requetePrepare->execute();
-    return $requetePrepare->fetch();
+    return $requetePrepare->fetchColumn(0);
     }
     /**
      * Retourne sous forme d'un tableau associatif toutes les lignes de frais
