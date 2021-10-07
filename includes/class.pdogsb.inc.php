@@ -152,13 +152,13 @@ return $requetePrepare->fetch();
         $requetePrepare->execute();
     }
     
-    public function getCodeVisiteur($login){
+    public function getCodeVisiteur($id){
     $requetePrepare=PdoGsb::$monPdo->prepare(
-                'SELECT code '
-                .'FROM visiteur '
-                .'WHERE visiteur.login = :unLogin'
+                'SELECT visiteur.code AS code '          
+            . 'FROM visiteur '
+            . 'WHERE visiteur.id = :unId'
             );
-    $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
+    $requetePrepare->bindParam(':unId', $id, PDO::PARAM_STR);
     $requetePrepare->execute();
     return $requetePrepare->fetch();
     }

@@ -25,7 +25,7 @@ switch ($action) {
         break;
     case 'valideConnexion':
         $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_STRING);
-        $mdp = filter_input(INPUT_POST, 'mdp', FILTER_SANITIZE_STRING);
+         $mdp = filter_input(INPUT_POST, 'mdp', FILTER_SANITIZE_STRING);
         $visiteur = $pdo->getInfosVisiteur($login);
         $comptable = $pdo->getInfosComptable($login);
         $mdpVisiteur= $pdo->getMdpVisiteur($login);

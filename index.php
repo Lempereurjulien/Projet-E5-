@@ -47,7 +47,7 @@ case 'suivreFrais':
     include 'controleurs/c_suivrePaiementFrais';
     break;
 case 'verificationCode':
-    include 'controleur/c_controleCode.php';
+    include 'controleurs/c_controleCode.php';
     break;
     
 case 'deconnexion':

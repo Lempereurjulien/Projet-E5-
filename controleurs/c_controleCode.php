@@ -5,8 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-$code = $pdo->getCodeVisiteur($login);
+$code = $pdo->getCodeVisiteur($_SESSION["idVisiteur"]);
+//$code = $pdo->getCodeVisiteur($login);
 if($code == $round){
     header('Location: index.php');
     include 'vues/v_accueil';
