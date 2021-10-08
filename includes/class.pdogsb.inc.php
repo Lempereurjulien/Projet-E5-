@@ -162,6 +162,17 @@ return $requetePrepare->fetch();
     $requetePrepare->execute();
     return $requetePrepare->fetchColumn(0);
     }
+    
+    public function getMailVisiteur($id){
+        $requetePrepare=PdoGsb::$monPdo->prepare(
+                'SELECT visiteur.email AS email '          
+            . 'FROM visiteur '
+            . 'WHERE visiteur.id = :unId'
+            );
+        $requetePrepare->bindParam(':unId', $id, PDO::PARAM_STR);
+    $requetePrepare->execute();
+    return $requetePrepare->fetch();
+    }
     /**
      * Retourne sous forme d'un tableau associatif toutes les lignes de frais
      * hors forfait concernées par les deux arguments.
