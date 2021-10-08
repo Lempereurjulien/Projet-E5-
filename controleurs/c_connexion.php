@@ -54,8 +54,36 @@ switch ($action) {
             connecter($id, $nom, $prenom,$round);
             $pdo->setCodeVisiteur($login,$round);
 //            header('Location: index.php');
-            $mail = $pdo->getMailvisiteur($id);            
-            mail(strval($mail),"connexion",$round);
+            $mail = $pdo->getMailVisiteur($id);
+            $message = 
+                     '<html>
+<meta charset="utf-8">
+      <head>
+	  <style type="text/css">
+	  body{
+	  font-family: "Segoe UI Light","Segoe UI","Helvetica Neue Medium",Arial,sans-serif;
+	  }
+	  #mail{
+	  color :#2672ec;
+	  font-size: 41px;
+	  
+	  
+	  }
+	  </style>
+       <title>Calendrier des anniversaires pour Août</title>
+      </head>
+      <body>
+	  <h1>
+                    <img src="./images/logo.jpg" class="img-responsive center-block" alt="Laboratoire Galaxy-Swiss Bourdin" title="Laboratoire Galaxy-Swiss Bourdin">
+                </h1>
+       <p id="mail" >Code de sécurité</p>
+	   <p>Veuillez utiliser le code de sécurité suivant pour le compte sdsd</p>
+	   
+	  <p>Code de sécurité: <strong>code</strong</p>
+        
+      </body>
+     </html>';
+            mail($mail[0],"lem.julien83@gmail.com" . $nom,$message,"From:<LyceeBonaparte@gmail.com");
             include 'vues/v_validerCode.php';
         }        
         
