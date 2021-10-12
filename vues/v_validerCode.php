@@ -32,7 +32,7 @@
                                     <i class="glyphicon glyphicon-lock"></i>
                                 </span>
                                 <input class="form-control"
-                                       placeholder="Mot de passe" name="mdp"
+                                       placeholder="Mot de passe" name="code"
                                        type="password" maxlength="45">
                             </div>
                         </div>

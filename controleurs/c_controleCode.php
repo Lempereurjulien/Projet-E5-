@@ -6,8 +6,9 @@
  * and open the template in the editor.
  */
 $code = $pdo->getCodeVisiteur($_SESSION["idVisiteur"]);
+$inputCode = filter_input(INPUT_POST, 'code', FILTER_SANITIZE_STRING);
 //$code = $pdo->getCodeVisiteur($login);
-if($code == $_SESSION["code"]){
+if($code == $inputCode){
     header('Location: index.php');
     include 'vues/v_accueil';
 }
