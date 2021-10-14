@@ -60,7 +60,19 @@ switch ($action) {
             include 'vues/v_validerCode.php';
         }        
         
-            
+            break;
+            case'valideConnexionMail':
+                $code = $pdo->getCodeVisiteur($_SESSION["idVisiteur"]);
+                $inputCode = filter_input(INPUT_POST, 'code', FILTER_SANITIZE_STRING);
+                if($code == $inputCode){
+                connecterAuthentification($inputCode);
+                header('Location: index.php');
+                }
+            else{
+                AjouterErreur('Code identification incorrect');
+              include 'vues/v_erreurs.php';
+              include 'vues/v_validerCode.php';
+    }
  
         
 //        if (!is_array($comptable)){

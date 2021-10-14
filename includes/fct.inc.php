@@ -21,7 +21,7 @@
  */
 function estConnecte()
 {     
-        return isset ($_SESSION['idVisiteur']);
+        return isset ($_SESSION['idVisiteur']) && ($_SESSION['code']);
 }
     
 function estConnecteComptable()
@@ -65,6 +65,10 @@ function deconnecter()
     session_destroy();
 }
 
+function connecterAuthentification($code) 
+{
+    $_SESSION['code'] = $code;
+}
 /**
  * Transforme une date au format français jj/mm/aaaa vers le format anglais
  * aaaa-mm-jj
